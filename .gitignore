@@ -1,0 +1,211 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# ==================================
+# DEPENDENCIES
+# ==================================
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Package manager locks (keep only one)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# ==================================
+# NEXT.JS
+# ==================================
+/.next/
+/out/
+.next
+.vercel
+
+# Static files
+/public/uploads/
+/public/temp/
+
+# ==================================
+# BUILD & PRODUCTION
+# ==================================
+/build
+/dist
+*.tsbuildinfo
+next-env.d.ts
+
+# ==================================
+# ENVIRONMENT & CONFIGURATION
+# ==================================
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+.env.test
+
+# Configuration files with sensitive data
+config.local.js
+config.local.json
+
+# ==================================
+# TESTING
+# ==================================
+/coverage
+/.nyc_output
+/test-results/
+/playwright-report/
+/test-results.xml
+*.lcov
+
+# Jest
+jest.config.local.js
+
+# ==================================
+# DEVELOPMENT & DEBUGGING
+# ==================================
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+lerna-debug.log*
+
+# IDEs and editors
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ==================================
+# CERTIFICATES & KEYS
+# ==================================
+*.pem
+*.key
+*.cert
+*.csr
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# ==================================
+# TEMPORARY & CACHE FILES
+# ==================================
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Cache directories
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+
+# ==================================
+# DEPLOYMENT & SERVICES
+# ==================================
+# Vercel
+.vercel
+
+# Netlify
+.netlify/
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# AWS
+.aws/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# ==================================
+# MONITORING & ANALYTICS
+# ==================================
+# Sentry
+.sentryclirc
+
+# Lighthouse reports
+lighthouse-report.html
+lighthouse-report.json
+
+# ==================================
+# FILE UPLOADS & MEDIA
+# ==================================
+# Uploaded files
+/uploads/
+/media/
+/static/uploads/
+
+# Generated images
+/public/generated/
+/public/optimized/
+
+# ==================================
+# DATABASE & BACKUPS
+# ==================================
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup files
+*.backup
+*.bak
+*.sql.gz
+
+# ==================================
+# LOGS
+# ==================================
+# Application logs
+logs/
+*.log
+log/
+.log
+
+# ==================================
+# DOCUMENTATION
+# ==================================
+# Auto-generated docs
+/docs/generated/
+/storybook-static/
+
+# ==================================
+# MISC
+# ==================================
+# Misc
+.turbo/
+.swc/
+.ultra.cache.json
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+thumbs.db
