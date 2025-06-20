@@ -59,3 +59,28 @@ body {
   color: var(--color-foreground);
   font-family: var(--font-family-open-sans);
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--color-background-secondary) inset !important;
+  -webkit-text-fill-color: var(--color-text-primary) !important;
+  background-color: var(--color-background-primary) !important;
+  border-color: rgba(148, 163, 184, 0.3) !important;
+  transition: background-color 5000s ease-in-out 0s;
+  color: white !important;
+}
+
+/* For better cross-browser support */
+input:-moz-autofill {
+  background-color: var(--color-background-primary) !important;
+  color: white !important;
+}
+
+/* Additional autofill support for other pseudo-states */
+input:-webkit-autofill:disabled {
+  -webkit-box-shadow: 0 0 0 30px var(--color-background-tertiary) inset !important;
+  -webkit-text-fill-color: var(--color-text-tertiary) !important;
+  color: white !important;
+}

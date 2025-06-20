@@ -240,6 +240,7 @@ export default function RegisterPage() {
             </div>
           </div>
 
+          {errors.general && <span className={styles.errorText}>{errors.general}</span>}
           <button
             type="submit"
             disabled={isSubmitting || isLoading}
@@ -254,6 +255,7 @@ export default function RegisterPage() {
               "Create Account"
             )}
           </button>
+        
 
           <div className={styles.dividerContainer}>
             <div className={styles.dividerLine}></div>

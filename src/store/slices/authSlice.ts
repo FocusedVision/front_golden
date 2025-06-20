@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { RegisterResponse } from "@/types/register";
+import { authApi } from "@/lib/api";
 
 interface AuthState {
   user: RegisterResponse | null;
@@ -24,28 +25,15 @@ export const loginUser = createAsyncThunk(
     { rejectWithValue },
   ) => {
     try {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        return rejectWithValue(errorData.message || "Login failed");
-      }
-
-      const data = await response.json();
+      const data = await authApi.login(credentials);
       return {
         user: data.user,
         token: data.token,
         refreshToken: data.refreshToken,
         expiresIn: data.expiresIn,
       };
-    } catch (error) {
-      return rejectWithValue("Network error occurred");
+    } catch (error: any) {
+      return rejectWithValue(error.message || "Login failed");
     }
   },
 );
@@ -62,28 +50,15 @@ export const registerUser = createAsyncThunk(
     { rejectWithValue },
   ) => {
     try {
-      const response = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        return rejectWithValue(errorData.message || "Registration failed");
-      }
-
-      const data = await response.json();
+      const data = await authApi.register(userData);
       return {
         user: data.user,
         token: data.token,
         refreshToken: data.refreshToken,
         expiresIn: data.expiresIn,
       };
-    } catch (error) {
-      return rejectWithValue("Network error occurred");
+    } catch (error: any) {
+      return rejectWithValue(error.message || "Registration failed");
     }
   },
 );
@@ -96,16 +71,12 @@ export const logoutUser = createAsyncThunk(
       const token = state.auth.token;
 
       if (token) {
-        await fetch("/api/auth/logout", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        await authApi.logout(token);
       }
 
       return true;
     } catch (error) {
+      // Always return true for logout, even if API call fails
       return true;
     }
   },
@@ -116,32 +87,20 @@ export const refreshToken = createAsyncThunk(
   async (_, { getState, rejectWithValue }) => {
     try {
       const state = getState() as { auth: AuthState };
-      const refreshToken = state.auth.refreshToken;
+      const refreshTokenValue = state.auth.refreshToken;
 
-      if (!refreshToken) {
+      if (!refreshTokenValue) {
         return rejectWithValue("No refresh token available");
       }
 
-      const response = await fetch("/api/auth/refresh", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ refreshToken }),
-      });
-
-      if (!response.ok) {
-        return rejectWithValue("Token refresh failed");
-      }
-
-      const data = await response.json();
+      const data = await authApi.refreshToken(refreshTokenValue);
       return {
         token: data.token,
         refreshToken: data.refreshToken,
         expiresIn: data.expiresIn,
       };
-    } catch (error) {
-      return rejectWithValue("Network error occurred");
+    } catch (error: any) {
+      return rejectWithValue(error.message || "Token refresh failed");
     }
   },
 );
