@@ -1,0 +1,239 @@
+.statsSection {
+  margin-bottom: var(--spacing-8);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-6);
+}
+
+.statCardWrapper {
+  min-height: 140px;
+}
+
+.statCard {
+  background: var(--color-surface);
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-6);
+  border: 1px solid var(--color-neutral-800);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.statCard:hover {
+  background: var(--color-surface-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.statCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  height: 100%;
+}
+
+.statCardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px;
+}
+
+.statCardTitle {
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-warning-500);
+  margin: 0 0 var(--spacing-2) 0;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  line-height: var(--line-height-snug);
+}
+
+.statCardValue {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-4) 0;
+  line-height: var(--line-height-tight);
+}
+
+.statCardTrend {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-top: auto;
+}
+
+.trendIcon {
+  width: 16px !important;
+  height: 16px !important;
+  flex-shrink: 0;
+}
+
+.trendUp {
+  color: var(--color-success-100);
+}
+
+.trendDown {
+  color: var(--color-error-100);
+}
+
+.trendNeutral {
+  color: var(--color-text-secondary);
+}
+
+.trendValue {
+  font-weight: var(--font-weight-semibold);
+}
+
+.trendLabel {
+  font-weight: var(--font-weight-normal);
+  opacity: 0.8;
+}
+
+.statCardIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--border-radius-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.iconImage {
+  object-fit: contain;
+  filter: brightness(1.2);
+}
+
+@media (max-width: 1200px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-4);
+  }
+}
+
+@media (max-width: 768px) {
+  .statsSection {
+    margin-bottom: var(--spacing-6);
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-4);
+  }
+
+  .statCardWrapper {
+    min-height: 120px;
+  }
+
+  .statCard {
+    padding: var(--spacing-4);
+  }
+
+  .statCardContent {
+    min-height: 100px;
+  }
+
+  .statCardValue {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-3);
+  }
+
+  .statCardHeader {
+    gap: var(--spacing-3);
+  }
+
+  .statCardIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .trendLabel {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsSection {
+    margin-bottom: var(--spacing-4);
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-3);
+  }
+
+  .statCardWrapper {
+    min-height: 110px;
+  }
+
+  .statCardValue {
+    font-size: var(--font-size-xl);
+  }
+
+  .statCardTitle {
+    font-size: var(--font-size-xs);
+  }
+
+  .statCardTrend {
+    font-size: var(--font-size-xs);
+  }
+
+  .statCardIcon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.statsGrid {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation for individual cards */
+.statCardWrapper:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.statCardWrapper:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.statCardWrapper:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.statCardWrapper:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .statsGrid,
+  .statCardWrapper {
+    animation: none;
+  }
+}

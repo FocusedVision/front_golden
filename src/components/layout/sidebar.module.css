@@ -1,0 +1,191 @@
+.drawer {
+  flex-shrink: 0;
+  & .MuiDrawer-paper {
+    width: 280px;
+    box-sizing: border-box;
+    background-color: var(--color-sidebar-background);
+    border: none;
+  }
+}
+
+.drawerContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-sidebar-background);
+  overflow: hidden;
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  min-height: 120px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.drawerHeader.collapsed {
+  padding: 8px;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+}
+
+.drawerHeader.expanded {
+  padding: 16px;
+  justify-content: center;
+  opacity: 1;
+}
+
+.drawerLogo {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.logoButton {
+  color: #ffffff;
+  margin-left: 1rem;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.navContent {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.navItemButton {
+  min-height: 48px !important;
+  border-radius: 8px !important;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  transition: all 0.2s ease-in-out !important;
+  position: relative !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+.navItemButton.collapsed {
+  justify-content: center !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  margin-left: 8px !important;
+  margin-right: 8px !important;
+}
+
+.navItemButton.expanded {
+  justify-content: flex-start !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  margin-left: 12px !important;
+  margin-right: 12px !important;
+}
+
+.navItemButton.active {
+  background-color: rgba(245, 196, 81, 0.15) !important;
+  border: 1px solid rgba(245, 196, 81, 0.3) !important;
+}
+
+.navItemButton.active::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 3px !important;
+  height: 60% !important;
+  background-color: #f5c451 !important;
+  border-radius: 0 2px 2px 0 !important;
+}
+
+.navItemButton:hover {
+  border: 1px solid rgba(245, 196, 81, 0.2) !important;
+}
+
+.navItemButton.active:hover {
+  background-color: rgba(245, 196, 81, 0.2) !important;
+}
+
+.navItemButton:not(.active):hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.navItemIcon {
+  min-width: 0 !important;
+  justify-content: center !important;
+}
+
+.navItemIcon.collapsed {
+  margin-right: 0 !important;
+}
+
+.navItemIcon.expanded {
+  margin-right: 16px !important;
+}
+
+.navItemIconSvg {
+  font-size: 20px !important;
+  transition: color 0.2s ease-in-out !important;
+  color: #ffffff !important;
+}
+
+.navItemIconSvg.active {
+  color: #f5c451 !important;
+}
+
+.navItemText {
+  margin: 0 !important;
+  transition: opacity 0.2s ease-in-out !important;
+  opacity: 1 !important;
+}
+
+.navItemText.collapsed {
+  opacity: 0 !important;
+}
+
+.navItemText :global(.MuiListItemText-primary) {
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  color: #ffffff !important;
+  font-family: "Nunito Sans, sans-serif" !important;
+  letter-spacing: 0.02em !important;
+  transition: color 0.2s ease-in-out !important;
+}
+
+.navItemText.active :global(.MuiListItemText-primary) {
+  font-weight: 600 !important;
+  color: #f5c451 !important;
+}
+
+.navList {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.drawerPaper {
+  box-sizing: border-box !important;
+  background-color: var(--color-sidebar-background) !important;
+  border: none !important;
+}
+
+.tooltipPopper :global(.MuiTooltip-tooltip) {
+  background-color: #1a1a1a !important;
+  color: white !important;
+  font-size: 0.875rem !important;
+  border: 1px solid #333 !important;
+}
+
+.tooltipPopper :global(.MuiTooltip-arrow) {
+  color: #1a1a1a !important;
+}
+
+.tooltipPopper :global(.MuiTooltip-arrow::before) {
+  border: 1px solid #333 !important;
+}

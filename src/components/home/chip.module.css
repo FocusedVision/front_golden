@@ -1,0 +1,119 @@
+.chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-full);
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-medium);
+    line-height: 1;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+    text-transform: capitalize;
+  }
+  
+  /* Size Variants */
+  .chipSm {
+    padding: var(--spacing-1) var(--spacing-2);
+    font-size: var(--font-size-xs);
+    min-width: 60px;
+    height: 20px;
+  }
+  
+  .chipMd {
+    padding: var(--spacing-1) var(--spacing-3);
+    font-size: var(--font-size-xs);
+    min-width: 97px;
+    height: 27px;
+  }
+  
+  .chipLg {
+    padding: var(--spacing-2) var(--spacing-4);
+    font-size: var(--font-size-sm);
+    min-width: 120px;
+    height: 32px;
+  }
+  
+  /* Color Variants */
+  .chipGood {
+    background: var(--color-success-500);
+    color: white;
+  }
+  
+  .chipGood:hover {
+    background: var(--color-success-600);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .chipBad {
+    background: var(--color-error-500);
+    color: white;
+  }
+  
+  .chipBad:hover {
+    background: var(--color-error-600);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .chipNormal {
+    background: var(--color-warning-500);
+    color: white;
+  }
+  
+  .chipNormal:hover {
+    background: var(--color-warning-600);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .chipPublished {
+    background: var(--color-success-500);
+    color: white;
+  }
+  
+  .chipPublished:hover {
+    background: var(--color-info-600);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .chipUnpublished {
+    background: var(--color-error-600);
+    color: var(--color-text-primary);
+  }
+  
+  .chipUnpublished:hover {
+    background: var(--color-neutral-500);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  @media (max-width: 768px) {
+    .chipMd {
+      min-width: 80px;
+      height: 24px;
+      font-size: var(--font-size-xs);
+      padding: var(--spacing-1) var(--spacing-2);
+    }
+  
+    .chipLg {
+      min-width: 100px;
+      height: 28px;
+      font-size: var(--font-size-xs);
+      padding: var(--spacing-1) var(--spacing-3);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .chipMd {
+      min-width: 70px;
+      height: 22px;
+    }
+  
+    .chipLg {
+      min-width: 90px;
+      height: 26px;
+    }
+  }
+  

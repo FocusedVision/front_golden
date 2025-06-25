@@ -47,7 +47,6 @@ const ERROR_MESSAGES = {
   },
 } as const;
 
-// Individual validation functions
 const validateName = (
   name: string,
   fieldName: "firstName" | "lastName",

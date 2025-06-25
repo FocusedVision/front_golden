@@ -10,31 +10,31 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "SaaSify - Professional SaaS Platform",
-    template: "%s | SaaSify",
+    default: "Golden Reputation",
+    template: "%s | Golden Reputation",
   },
   description:
     "A modern, professional SaaS platform built with Next.js, Material UI, and Tailwind CSS",
   keywords: ["SaaS", "Dashboard", "Analytics", "Business", "Platform"],
-  authors: [{ name: "SaaSify Team" }],
-  creator: "SaaSify",
-  publisher: "SaaSify",
-  metadataBase: new URL("https://saasify.com"),
+  authors: [{ name: "Golden Reputation Team" }],
+  creator: "Golden Reputation",
+  publisher: "Golden Reputation",
+  metadataBase: new URL("https://goldenreputation.com"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://saasify.com",
-    title: "SaaSify - Professional SaaS Platform",
+    url: "https://goldenreputation.com",
+    title: "Golden Reputation - Professional SaaS Platform",
     description:
       "A modern, professional SaaS platform built with Next.js, Material UI, and Tailwind CSS",
-    siteName: "SaaSify",
+    siteName: "Golden Reputation",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SaaSify - Professional SaaS Platform",
+    title: "Golden Reputation - Professional SaaS Platform",
     description:
       "A modern, professional SaaS platform built with Next.js, Material UI, and Tailwind CSS",
-    creator: "@saasify",
+    creator: "@goldenreputation",
   },
   robots: {
     index: true,

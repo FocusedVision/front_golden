@@ -1,9 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { RegisterResponse } from "@/types/register";
+import { RegisterResponse } from "@/types/auth";
 import { authApi } from "@/lib/api";
 
 interface AuthState {
-  user: RegisterResponse | null;
+  user: {
+    id: string;
+    email: string;
+    firstName: string | null;
+    lastName: string | null;
+    role: string;
+    isActive: boolean;
+    createdAt: string;
+    updatedAt: string;
+  } | null;
   token: string | null;
   refreshToken: string | null;
   isAuthenticated: boolean;
@@ -21,16 +30,21 @@ const initialState: AuthState = {
 export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (
-    credentials: { email: string; password: string },
+    credentials: { email: string; password: string; remember?: boolean },
     { rejectWithValue },
   ) => {
     try {
-      const data = await authApi.login(credentials);
+      const response = await authApi.login(credentials);
+
+      if (!response.success) {
+        return rejectWithValue(response.message || "Login failed");
+      }
+
       return {
-        user: data.user,
-        token: data.token,
-        refreshToken: data.refreshToken,
-        expiresIn: data.expiresIn,
+        user: response.data.user,
+        token: response.data.token,
+        refreshToken: response.data.refreshToken,
+        expiresIn: response.data.expiresIn,
       };
     } catch (error: any) {
       return rejectWithValue(error.message || "Login failed");

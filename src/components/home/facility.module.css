@@ -1,0 +1,169 @@
+.facilitySection {
+    background: var(--color-surface);
+    border-radius: var(--border-radius-xl);
+    overflow: hidden;
+    transition: all var(--transition-base);
+  }
+  
+  .facilitySection:hover {
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .facilityWrapper {
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+  }
+  
+  .tableHeader {
+    background: var(--color-neutral-700);
+  }
+  
+  .tableHeader th {
+    padding: var(--spacing-4);
+    text-align: center;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .tableBody {
+    background: var(--color-surface);
+  }
+  
+  .tableRow {
+    transition: all var(--transition-fast);
+  }
+  
+  .tableRow:hover {
+    background: var(--color-surface-hover);
+  }
+  
+  .tableBody td {
+    padding: var(--spacing-4);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    vertical-align: middle;
+  }
+  
+  .facilityLogo {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary) !important;
+  }
+  
+  .facilityName {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary) !important;
+    min-width: 200px;
+  }
+  
+  .numberCell {
+    text-align: center !important;
+    font-weight: var(--font-weight-medium);
+    font-variant-numeric: tabular-nums;
+    min-width: 80px;
+  }
+  
+  .performanceCell {
+    text-align: center !important;
+    min-width: 120px;
+  }
+  
+  @media (max-width: 1200px) {
+    .table {
+      min-width: 700px;
+    }
+  
+    .tableHeader th,
+    .tableBody td {
+      padding: var(--spacing-3);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .facilitySection {
+      border-radius: var(--border-radius-lg);
+      margin: 0 calc(-1 * var(--spacing-4));
+    }
+  
+    .table {
+      min-width: 600px;
+    }
+  
+    .tableHeader th,
+    .tableBody td {
+      padding: var(--spacing-2) var(--spacing-3);
+      font-size: var(--font-size-xs);
+    }
+  
+    .facilityName {
+      min-width: 120px;
+    }
+  
+    .numberCell {
+      min-width: 60px;
+    }
+  
+    .performanceCell {
+      min-width: 100px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .facilitySection {
+      margin: 0 calc(-1 * var(--spacing-3));
+    }
+  
+    .table {
+      min-width: 500px;
+    }
+  
+    .tableHeader th,
+    .tableBody td {
+      padding: var(--spacing-2);
+    }
+  
+    .facilityName {
+      min-width: 100px;
+    }
+  
+    .numberCell {
+      min-width: 50px;
+    }
+  
+    .performanceCell {
+      min-width: 80px;
+    }
+  }
+  
+  /* Custom scrollbar for table wrapper */
+  .facilityWrapper::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .facilityWrapper::-webkit-scrollbar-track {
+    background: var(--color-neutral-800);
+    border-radius: var(--border-radius-base);
+  }
+  
+  .facilityWrapper::-webkit-scrollbar-thumb {
+    background: var(--color-neutral-600);
+    border-radius: var(--border-radius-base);
+  }
+  
+  .facilityWrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--color-neutral-500);
+  }
+  

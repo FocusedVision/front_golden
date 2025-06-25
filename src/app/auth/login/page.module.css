@@ -1,0 +1,433 @@
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background-primary);
+  padding: 1rem;
+  user-select: none;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 28rem;
+  background: transparent;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 10px 15px -3px rgba(0, 0, 0, 0.2),
+    0 20px 25px -5px rgba(0, 0, 0, 0.15),
+    0 25px 50px -12px rgba(0, 0, 0, 0.4);
+
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.formContainer:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 8px 12px -2px rgba(0, 0, 0, 0.35),
+    0 16px 24px -4px rgba(0, 0, 0, 0.25),
+    0 24px 32px -8px rgba(0, 0, 0, 0.2),
+    0 32px 64px -16px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(59, 130, 246, 0.15);
+}
+
+.formContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.5),
+    transparent
+  );
+}
+
+.formContainer::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.03) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.formTitle {
+  color: white;
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.inputGroup {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #f1f5f9;
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1.5px solid rgba(148, 163, 184, 0.3);
+  border-radius: 0.75rem;
+  background-color: rgba(30, 41, 59, 0.5);
+  color: #f8fafc;
+  font-size: 1rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.input::placeholder {
+  color: #64748b;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow:
+    0 0 0 3px rgba(59, 130, 246, 0.1),
+    0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background-color: rgba(30, 41, 59, 0.7);
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input.error {
+  border-color: var(--color-error-100);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.termsContainer {
+  margin-bottom: 1.5rem;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.checkbox {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.125rem;
+  accent-color: #3b82f6;
+  cursor: pointer;
+}
+
+.checkboxLabel {
+  font-size: 0.875rem;
+  color: #cbd5e1; /* slate-300 */
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.link {
+  color: #60a5fa; /* blue-400 */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #3b82f6; /* blue-500 */
+  text-decoration: underline;
+}
+
+.submitButton {
+  width: 100%;
+  background: linear-gradient(
+    145deg,
+    rgba(30, 41, 59, 0.5) 0%,
+    rgba(51, 65, 85, 0.3) 100%
+  );
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  margin-bottom: 1.5rem;
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.submitButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: linear-gradient(
+    145deg,
+    rgba(30, 41, 59, 0.7) 0%,
+    rgba(51, 65, 85, 0.5) 100%
+  );
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.submitButton:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submitButtonLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.dividerContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(148, 163, 184, 0.3),
+    transparent
+  );
+}
+
+.dividerText {
+  color: #64748b;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.socialContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.socialButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid rgba(148, 163, 184, 0.3);
+  border-radius: 0.75rem;
+  background-color: rgba(51, 65, 85, 0.3);
+  color: #f1f5f9;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.socialButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.socialButton:hover:not(:disabled) {
+  border-color: rgba(148, 163, 184, 0.5);
+  background: linear-gradient(
+    145deg,
+    rgba(30, 41, 59, 0.7) 0%,
+    rgba(51, 65, 85, 0.5) 100%
+  );
+  transform: translateY(-1px);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.socialButton:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.socialButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.socialButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.registerContainer {
+  text-align: center;
+}
+
+.registerText {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+.registerLink {
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.registerLink:hover {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+.errorAlert {
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.errorText {
+  color: #fca5a5;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .formContainer {
+    padding: 0.5rem;
+  }
+
+  .formContainer {
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+
+  .formTitle {
+    font-size: 1.5rem;
+  }
+
+  .nameRow {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nameRow .inputGroup {
+    margin-bottom: 1.5rem;
+  }
+
+  .socialContainer {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .formContainer {
+    padding: 1.5rem 1rem;
+  }
+
+  .formTitle {
+    font-size: 1.25rem;
+  }
+
+  .formSubtitle {
+    font-size: 1.5rem;
+  }
+}

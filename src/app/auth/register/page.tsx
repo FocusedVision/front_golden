@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
-import { RegisterCredentials, FormErrors } from "@/types/register";
+import { RegisterCredentials, RegisterFormErrors } from "@/types/auth";
 import { registerUser } from "@/store/slices/authSlice";
 import { AppDispatch, RootState } from "@/store";
 import styles from "./page.module.css";
@@ -27,7 +27,7 @@ export default function RegisterPage() {
     confirmPassword: "",
   });
 
-  const [errors, setErrors] = useState<FormErrors>({});
+  const [errors, setErrors] = useState<RegisterFormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -74,7 +74,7 @@ export default function RegisterPage() {
   };
 
   const validateForm = (): boolean => {
-    const validationErrors: FormErrors = {};
+    const validationErrors: RegisterFormErrors = {};
 
     const firstNameError = validateName(formData.firstName, "firstName");
     if (firstNameError) {
@@ -240,7 +240,9 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {errors.general && <span className={styles.errorText}>{errors.general}</span>}
+          {errors.general && (
+            <span className={styles.errorText}>{errors.general}</span>
+          )}
           <button
             type="submit"
             disabled={isSubmitting || isLoading}
@@ -255,7 +257,6 @@ export default function RegisterPage() {
               "Create Account"
             )}
           </button>
-        
 
           <div className={styles.dividerContainer}>
             <div className={styles.dividerLine}></div>
